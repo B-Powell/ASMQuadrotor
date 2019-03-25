@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+    <include file="$(find hector_slam_launch)/launch/tutorial.launch" />
+    <include file="$(find mavros)/launch/apm.launch">
+	<arg name="fcu_url" value="udp://:14650@"/>
+	<arg name="gcs_url" value="udp://:14551@192.168.205.83:14552"/>
+    </include>    
+</launch>
+
