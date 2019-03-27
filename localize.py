@@ -9,14 +9,14 @@ from sensor_msgs.msg import LaserScan
 def callback(msg):
 #    for depth in msg.ranges:
 	global pos_x, pos_y
-	print(msg.ranges[270])
 	x = (msg.ranges[90]*400)
 	if(x >= 0 and x <= 10000):
 		pos_x = int(x)
 	y = (msg.ranges[180]*400)
 	if(y >= 0 and y <= 10000):
 		pos_y = int(y)
-	visualize(pos_x, pos_y)
+	print(pos_x, pos_y)
+#	visualize(pos_x, pos_y)
 
 def visualize(x, y):
 	img = np.zeros((800,800,3), np.uint8)
