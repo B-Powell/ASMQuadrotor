@@ -76,7 +76,7 @@ def node():
 	global pos_x, pos_y, pos_z, rot_x, rot_y, pub_pose
 	pos_x, pos_y, pos_z, rot_x, rot_y = 0,0,0,0,0
 	rospy.init_node('localization')
-	pub_pose = rospy.Publisher("/mavros/vision_pose/debug", PoseStamped, queue_size=1)
+	pub_pose = rospy.Publisher("/mavros/vision_pose/pose", PoseStamped, queue_size=1)
 	sub_scan = rospy.Subscriber('/scan', LaserScan, callback_scan)
 	sub_imu_pose = rospy.Subscriber('/mavros/local_position/pose', PoseStamped, callback_imu_pose)
 	sub_slam_pose = rospy.Subscriber('/robot_pose', PoseStamped, callback_slam_pose)
