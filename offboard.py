@@ -170,6 +170,7 @@ def main():
 
 
     # Make sure the drone is armed
+    print("Arming the Quadcopter")
     while not cnt.state.armed:
         modes.setArm()
         rate.sleep()
@@ -181,11 +182,13 @@ def main():
     # We need to send few setpoint messages, then activate OFFBOARD mode, to take effect
     k=0
     while k<10:
+        print("Sending Basic Setpoints", cnt.sp)
         sp_pub.publish(cnt.sp)
         rate.sleep()
         k = k + 1
 
     # activate OFFBOARD mode
+    print("Setting OFFBOARD Mode")
     modes.setOffboardMode()
 
     # ROS main loop
