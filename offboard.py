@@ -146,7 +146,7 @@ class Controller:
 
 # Main function
 def main():
-
+    print("Initializing the Offboard Node")
     # initiate node
     rospy.init_node('setpoint_node', anonymous=True)
 
