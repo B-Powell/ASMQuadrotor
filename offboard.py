@@ -199,6 +199,7 @@ def main():
 
 if __name__ == '__main__':
 	try:
+		print("Starting Python Script")
 		main()
 	except rospy.ROSInterruptException:
 		pass
