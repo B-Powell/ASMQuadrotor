@@ -148,7 +148,7 @@ class Controller:
 def main():
     print("Initializing the Offboard Node")
     # initiate node
-    rospy.init_node('setpoint_node', anonymous=True)
+    rospy.init_node('setpoint_node')
 
     # flight mode object
     modes = fcuModes()
@@ -182,7 +182,7 @@ def main():
     # We need to send few setpoint messages, then activate OFFBOARD mode, to take effect
     k=0
     while k<10:
-        print("Sending Basic Setpoints", cnt.sp)
+        print("Sending Initial Setpoints")
         sp_pub.publish(cnt.sp)
         rate.sleep()
         k = k + 1
@@ -193,6 +193,8 @@ def main():
 
     # ROS main loop
     while not rospy.is_shutdown():
+	print("Updating the Setpoint (X,Y,Z)")
+	print(cnt.sp)
     	cnt.updateSp()
     	sp_pub.publish(cnt.sp)
     	rate.sleep()
